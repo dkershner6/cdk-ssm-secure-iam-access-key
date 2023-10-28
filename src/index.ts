@@ -1,5 +1,5 @@
-// eslint-disable-next-line @typescript-eslint/no-require-imports
-import path = require('path');
+import * as fs from 'fs';
+import * as path from 'path';
 
 import * as cdk from 'aws-cdk-lib';
 import * as iam from 'aws-cdk-lib/aws-iam';
@@ -56,11 +56,15 @@ export class SSMSecureIAMAccessKey extends Construct {
   }
 
   private createAccessKeyCreatorProvider(): cr.Provider {
+    const providerFileName = 'provider';
+    const providerPathTs = path.join(__dirname, `${providerFileName}.ts`);
+    const providerPathJs = path.join(__dirname, `${providerFileName}.js`);
+
     const onEventHandler = new lambdanodejs.NodejsFunction(
       this,
       `${this.id}-OnEventHandler`,
       {
-        entry: path.join(__dirname, 'provider.js'), // This may look weird, but its because we transpile before we export
+        entry: fs.existsSync(providerPathTs) ? providerPathTs : providerPathJs,
         handler: 'onEvent',
         runtime: lambda.Runtime.NODEJS_18_X,
         timeout: cdk.Duration.minutes(5),
