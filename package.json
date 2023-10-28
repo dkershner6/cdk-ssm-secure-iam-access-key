@@ -74,6 +74,7 @@
     "@aws-sdk/client-ssm"
   ],
   "keywords": [
+    "awscdk",
     "cdk"
   ],
   "main": "lib/index.js",
