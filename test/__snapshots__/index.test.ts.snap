@@ -1,0 +1,260 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should deploy 1`] = `
+{
+  "Parameters": {
+    "BootstrapVersion": {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": {
+    "testtestCreateAccessKeyProviderframeworkonEventA478602C": {
+      "DependsOn": [
+        "testtestCreateAccessKeyProviderframeworkonEventServiceRoleDefaultPolicy8B69BC01",
+        "testtestCreateAccessKeyProviderframeworkonEventServiceRoleD0A9904F",
+      ],
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Fn::Sub": "cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}",
+          },
+          "S3Key": "7382a0addb9f34974a1ea6c6c9b063882af874828f366f5c93b2b7b64db15c94.zip",
+        },
+        "Description": "AWS CDK resource provider framework - onEvent (TestStack/test/test-CreateAccessKeyProvider)",
+        "Environment": {
+          "Variables": {
+            "USER_ON_EVENT_FUNCTION_ARN": {
+              "Fn::GetAtt": [
+                "testtestOnEventHandlerCCBBF9B1",
+                "Arn",
+              ],
+            },
+          },
+        },
+        "Handler": "framework.onEvent",
+        "Role": {
+          "Fn::GetAtt": [
+            "testtestCreateAccessKeyProviderframeworkonEventServiceRoleD0A9904F",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs18.x",
+        "Timeout": 900,
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "testtestCreateAccessKeyProviderframeworkonEventServiceRoleD0A9904F": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "testtestCreateAccessKeyProviderframeworkonEventServiceRoleDefaultPolicy8B69BC01": {
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": "lambda:InvokeFunction",
+              "Effect": "Allow",
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
+                    "testtestOnEventHandlerCCBBF9B1",
+                    "Arn",
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      {
+                        "Fn::GetAtt": [
+                          "testtestOnEventHandlerCCBBF9B1",
+                          "Arn",
+                        ],
+                      },
+                      ":*",
+                    ],
+                  ],
+                },
+              ],
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "testtestCreateAccessKeyProviderframeworkonEventServiceRoleDefaultPolicy8B69BC01",
+        "Roles": [
+          {
+            "Ref": "testtestCreateAccessKeyProviderframeworkonEventServiceRoleD0A9904F",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "testtestOnEventHandlerCCBBF9B1": {
+      "DependsOn": [
+        "testtestOnEventHandlerServiceRoleDefaultPolicy7304DCEC",
+        "testtestOnEventHandlerServiceRoleD0EFD869",
+      ],
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Fn::Sub": "cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}",
+          },
+          "S3Key": "1588857bb0ca3aec27fdd0ef37a2dd1743332db03479ad96c0edbc865659bc39.zip",
+        },
+        "Environment": {
+          "Variables": {
+            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+          },
+        },
+        "Handler": "index.onEvent",
+        "Role": {
+          "Fn::GetAtt": [
+            "testtestOnEventHandlerServiceRoleD0EFD869",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs18.x",
+        "Timeout": 300,
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "testtestOnEventHandlerServiceRoleD0EFD869": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "testtestOnEventHandlerServiceRoleDefaultPolicy7304DCEC": {
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "iam:CreateAccessKey",
+                "iam:DeleteAccessKey",
+              ],
+              "Effect": "Allow",
+              "Resource": "testUserArn",
+            },
+            {
+              "Action": [
+                "ssm:DeleteParameter",
+                "ssm:DescribeParameters",
+                "ssm:GetParameter",
+                "ssm:GetParameterHistory",
+                "ssm:PutParameter",
+              ],
+              "Effect": "Allow",
+              "Resource": "arn:aws:ssm:*:*:parameter/test/param",
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "testtestOnEventHandlerServiceRoleDefaultPolicy7304DCEC",
+        "Roles": [
+          {
+            "Ref": "testtestOnEventHandlerServiceRoleD0EFD869",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "testtestResourceDC276495": {
+      "DeletionPolicy": "Delete",
+      "Properties": {
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "testtestCreateAccessKeyProviderframeworkonEventA478602C",
+            "Arn",
+          ],
+        },
+        "parameterName": "/test/param",
+        "userName": "testUserName",
+      },
+      "Type": "Custom::SSMSecureIAMAccessKey",
+      "UpdateReplacePolicy": "Delete",
+    },
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;

@@ -42,6 +42,7 @@
     "@typescript-eslint/parser": "^6",
     "aws-cdk-lib": "2.103.1",
     "constructs": "10.0.5",
+    "esbuild": "^0.19.5",
     "eslint": "^8",
     "eslint-import-resolver-node": "^0.3.9",
     "eslint-import-resolver-typescript": "^3.6.1",
@@ -73,6 +74,7 @@
     "@aws-sdk/client-ssm"
   ],
   "keywords": [
+    "awscdk",
     "cdk"
   ],
   "main": "lib/index.js",

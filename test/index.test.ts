@@ -1,23 +1,21 @@
-// import { App, Stack } from 'aws-cdk-lib';
-// import { ISSMSecureIAMAccessKeyProps, SSMSecureIAMAccessKey } from '../src';
+import { assertions, App, Stack } from 'aws-cdk-lib';
+import { ISSMSecureIAMAccessKeyProps, SSMSecureIAMAccessKey } from '../src';
 
-// const mockApp = new App();
-// const stack = new Stack(mockApp);
+const mockApp = new App();
+const stack = new Stack(mockApp, 'TestStack');
 
 it('Should deploy', () => {
-//   const testProps: ISSMSecureIAMAccessKeyProps = {
-//     parameterName: '/test/param',
-//     // @ts-expect-error - Incomplete Mock
-//     user: {
-//       userName: 'testUserName',
-//       userArn: 'testUserArn',
+  const testProps: ISSMSecureIAMAccessKeyProps = {
+    parameterName: '/test/param',
+    // @ts-expect-error - Incomplete Mock
+    user: {
+      userName: 'testUserName',
+      userArn: 'testUserArn',
 
-  //     },
-  //   };
+    },
+  };
 
-  //   expect(new SSMSecureIAMAccessKey(stack, 'test', testProps)).toBeDefined();
+  new SSMSecureIAMAccessKey(stack, 'test', testProps);
 
-  // It doesn't find the provider until the real build
-
-  expect(true).toBe(true);
+  expect(assertions.Template.fromStack(stack).toJSON()).toMatchSnapshot();
 });
