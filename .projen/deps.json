@@ -1,6 +1,10 @@
 {
   "dependencies": [
     {
+      "name": "@types/aws-lambda",
+      "type": "build"
+    },
+    {
       "name": "@types/jest",
       "type": "build"
     },
@@ -92,6 +96,14 @@
     {
       "name": "typescript",
       "type": "build"
+    },
+    {
+      "name": "@aws-sdk/client-iam",
+      "type": "bundled"
+    },
+    {
+      "name": "@aws-sdk/client-ssm",
+      "type": "bundled"
     },
     {
       "name": "aws-cdk-lib",

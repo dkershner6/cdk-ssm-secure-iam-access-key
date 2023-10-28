@@ -12,8 +12,21 @@ const project = new awscdk.AwsCdkConstructLibrary({
 
   // deps: [],                /* Runtime dependencies of this module. */
   description: 'Creates an IAM Access Key for a provided IAM User and stores the result in an SSM SecureString Parameter', /* The description is just a string that helps people understand the purpose of the package. */
-  // devDeps: [],             /* Build dependencies for this module. */
+  devDeps: [
+    '@types/aws-lambda',
+  ],
+  bundledDeps: [
+    '@aws-sdk/client-iam',
+    '@aws-sdk/client-ssm',
+  ],
   packageName: 'cdk-ssm-secure-iam-access-key', /* The "name" in package.json. */
   gitignore: ['.DS_STORE'],
+
+  tsconfig: {
+    compilerOptions: {
+      esModuleInterop: true,
+    },
+  },
 });
+
 project.synth();
