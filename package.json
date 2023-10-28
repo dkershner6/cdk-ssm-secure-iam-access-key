@@ -1,5 +1,6 @@
 {
   "name": "cdk-ssm-secure-iam-access-key",
+  "description": "Creates an IAM Access Key for a provided IAM User and stores the result in an SSM SecureString Parameter",
   "repository": {
     "type": "git",
     "url": "https://github.com/dkershner6/cdk-ssm-secure-iam-access-key.git"
@@ -30,15 +31,15 @@
   },
   "author": {
     "name": "Derek Kershner",
-    "email": "kershner@eformedpartners.com",
+    "url": "https://dkershner.com",
     "organization": false
   },
   "devDependencies": {
     "@types/jest": "^29.5.6",
     "@types/node": "^16",
-    "@typescript-eslint/eslint-plugin": "^5",
-    "@typescript-eslint/parser": "^5",
-    "aws-cdk-lib": "2.1.0",
+    "@typescript-eslint/eslint-plugin": "^6",
+    "@typescript-eslint/parser": "^6",
+    "aws-cdk-lib": "2.103.1",
     "constructs": "10.0.5",
     "eslint": "^8",
     "eslint-import-resolver-node": "^0.3.9",
@@ -50,6 +51,7 @@
     "jsii-diff": "^1.91.0",
     "jsii-docgen": "^10.0.0",
     "jsii-pacmak": "^1.91.0",
+    "jsii-rosetta": "~5.0.0",
     "npm-check-updates": "^16",
     "projen": "^0.76.13",
     "standard-version": "^9",
@@ -58,7 +60,7 @@
     "typescript": "^5.2.2"
   },
   "peerDependencies": {
-    "aws-cdk-lib": "^2.1.0",
+    "aws-cdk-lib": "^2.103.1",
     "constructs": "^10.0.5"
   },
   "keywords": [
