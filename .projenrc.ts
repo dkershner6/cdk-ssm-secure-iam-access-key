@@ -8,7 +8,7 @@ const PROJECT_NAME = "cdk-ssm-secure-iam-access-key";
 const PROJECT_NAME_PASCAL_CASE = "CdkSsmSecureIamAccessKey";
 
 const project = new Node20AwsCdkConstructLibrary({
-    packageManager: javascript.NodePackageManager.NPM,
+    packageManager: javascript.NodePackageManager.YARN_CLASSIC,
     author: "Derek Kershner",
     authorAddress: "https://dkershner.com",
     cdkVersion: "2.103.1",
@@ -25,6 +25,7 @@ const project = new Node20AwsCdkConstructLibrary({
     keywords: ["awscdk", "iam", "ssm", "securestring"],
     devDeps: [
         "@types/aws-lambda",
+        "clone-deep",
         "esbuild",
         "dkershner6-projen-typescript",
         "projen-nvm",
@@ -62,9 +63,6 @@ const project = new Node20AwsCdkConstructLibrary({
 
 project.addPackageIgnore(".prettier*");
 project.addPackageIgnore(".projenrc.*");
-
-project.tasks.tryFind("install")?.reset("npm install --force");
-project.tasks.tryFind("install:ci")?.reset("npm ci --force");
 
 new Nvmrc(project);
 
