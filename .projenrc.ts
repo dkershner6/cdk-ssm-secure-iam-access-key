@@ -1,4 +1,5 @@
 import { Node20AwsCdkConstructLibrary } from "dkershner6-projen-typescript";
+import { javascript } from "projen";
 import { Nvmrc } from "projen-nvm";
 
 const GITHUB_USERNAME_OR_ORG = "dkershner6";
@@ -7,6 +8,7 @@ const PROJECT_NAME = "cdk-ssm-secure-iam-access-key";
 const PROJECT_NAME_PASCAL_CASE = "CdkSsmSecureIamAccessKey";
 
 const project = new Node20AwsCdkConstructLibrary({
+    packageManager: javascript.NodePackageManager.NPM,
     author: "Derek Kershner",
     authorAddress: "https://dkershner.com",
     cdkVersion: "2.103.1",
@@ -60,6 +62,9 @@ const project = new Node20AwsCdkConstructLibrary({
 
 project.addPackageIgnore(".prettier*");
 project.addPackageIgnore(".projenrc.*");
+
+project.tasks.tryFind("install")?.reset("npm install --force");
+project.tasks.tryFind("install:ci")?.reset("npm ci --force");
 
 new Nvmrc(project);
 

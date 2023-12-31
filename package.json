@@ -84,7 +84,6 @@
     "@aws-sdk/client-iam",
     "@aws-sdk/client-ssm"
   ],
-  "pnpm": {},
   "keywords": [
     "awscdk",
     "cdk",
