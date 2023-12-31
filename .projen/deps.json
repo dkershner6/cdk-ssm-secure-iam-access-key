@@ -24,6 +24,10 @@
       "type": "build"
     },
     {
+      "name": "clone-deep",
+      "type": "build"
+    },
+    {
       "name": "dkershner6-projen-typescript",
       "type": "build"
     },

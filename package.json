@@ -46,6 +46,7 @@
     "@typescript-eslint/eslint-plugin": "^6",
     "@typescript-eslint/parser": "^6",
     "aws-cdk-lib": "2.103.1",
+    "clone-deep": "^4.0.1",
     "constructs": "10.0.5",
     "dkershner6-projen-typescript": "^0.0.3",
     "esbuild": "^0.19.5",
@@ -84,7 +85,6 @@
     "@aws-sdk/client-iam",
     "@aws-sdk/client-ssm"
   ],
-  "pnpm": {},
   "keywords": [
     "awscdk",
     "cdk",
