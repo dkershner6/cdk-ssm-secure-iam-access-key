@@ -44,6 +44,7 @@ const project = new Node20AwsCdkConstructLibrary({
 
     publishToGo: {
         moduleName: `github.com/${GITHUB_USERNAME_OR_ORG}/${PROJECT_NAME}`,
+        gitBranch: "publish-go",
     },
 
     // publishToMaven: {
@@ -56,6 +57,9 @@ const project = new Node20AwsCdkConstructLibrary({
     //     mavenEndpoint: "https://s01.oss.sonatype.org",
     // },
 });
+
+project.addPackageIgnore(".prettier*");
+project.addPackageIgnore(".projenrc.*");
 
 new Nvmrc(project);
 
