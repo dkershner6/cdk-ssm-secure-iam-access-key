@@ -41,6 +41,14 @@
       ],
       "condition": "! git log --oneline -1 | grep -q \"chore(release):\""
     },
+    "ci": {
+      "name": "ci",
+      "steps": [
+        {
+          "spawn": "install:ci"
+        }
+      ]
+    },
     "clobber": {
       "name": "clobber",
       "description": "hard resets to HEAD of origin and cleans the local repo",
@@ -130,6 +138,26 @@
         }
       ]
     },
+    "eslint-strict": {
+      "name": "eslint-strict",
+      "description": "Stricter Lint Command",
+      "steps": [
+        {
+          "spawn": "eslint",
+          "args": [
+            "--max-warnings=0"
+          ]
+        }
+      ]
+    },
+    "i": {
+      "name": "i",
+      "steps": [
+        {
+          "spawn": "install"
+        }
+      ]
+    },
     "install": {
       "name": "install",
       "description": "Install project dependencies and update lockfile (non-frozen)",
@@ -150,10 +178,10 @@
     },
     "lint": {
       "name": "lint",
-      "description": "Alternate lint command",
+      "description": "Alternate strict lint command",
       "steps": [
         {
-          "spawn": "eslint"
+          "spawn": "eslint-strict"
         }
       ]
     },
@@ -266,11 +294,19 @@
       "description": "Run tests",
       "steps": [
         {
-          "exec": "jest --passWithNoTests --coverageProvider=v8 --updateSnapshot",
-          "receiveArgs": true
+          "spawn": "eslint-strict"
         },
         {
-          "spawn": "eslint"
+          "spawn": "test-unit"
+        }
+      ]
+    },
+    "test-unit": {
+      "name": "test-unit",
+      "steps": [
+        {
+          "exec": "jest --passWithNoTests --coverageProvider=v8 --updateSnapshot",
+          "receiveArgs": true
         }
       ]
     },
@@ -315,16 +351,13 @@
       },
       "steps": [
         {
-          "exec": "yarn upgrade npm-check-updates"
-        },
-        {
-          "exec": "npm-check-updates --upgrade --target=minor --peer --dep=dev,peer,prod,optional --filter=@types/aws-lambda,@types/jest,@types/node,@typescript-eslint/eslint-plugin,@typescript-eslint/parser,clone-deep,dkershner6-projen-typescript,esbuild,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-jest,eslint-plugin-prettier,eslint-plugin-sonarjs,eslint,jest,jest-junit,jsii-diff,jsii-docgen,jsii-pacmak,npm-check-updates,prettier,projen,projen-nvm,standard-version,ts-jest,ts-node,typescript,@aws-sdk/client-iam,@aws-sdk/client-ssm,aws-cdk-lib,constructs"
+          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev,peer,prod,optional --filter=@types/aws-lambda,@types/clone-deep,@types/jest,@types/node,@typescript-eslint/eslint-plugin,@typescript-eslint/parser,clone-deep,dkershner6-projen-typescript,esbuild,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-jest,eslint-plugin-prettier,eslint-plugin-sonarjs,eslint,jest,jest-junit,jsii-diff,jsii-docgen,jsii-pacmak,prettier,projen,projen-nvm,standard-version,ts-jest,ts-node,typescript,@aws-sdk/client-iam,@aws-sdk/client-ssm,aws-cdk-lib,constructs"
         },
         {
           "exec": "yarn install --check-files"
         },
         {
-          "exec": "yarn upgrade @types/aws-lambda @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser clone-deep dkershner6-projen-typescript esbuild eslint-config-prettier eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-jest eslint-plugin-prettier eslint-plugin-sonarjs eslint jest jest-junit jsii-diff jsii-docgen jsii-pacmak npm-check-updates prettier projen projen-nvm standard-version ts-jest ts-node typescript @aws-sdk/client-iam @aws-sdk/client-ssm aws-cdk-lib constructs"
+          "exec": "yarn upgrade @types/aws-lambda @types/clone-deep @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser clone-deep dkershner6-projen-typescript esbuild eslint-config-prettier eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-jest eslint-plugin-prettier eslint-plugin-sonarjs eslint jest jest-junit jsii-diff jsii-docgen jsii-pacmak prettier projen projen-nvm standard-version ts-jest ts-node typescript @aws-sdk/client-iam @aws-sdk/client-ssm aws-cdk-lib constructs"
         },
         {
           "exec": "npx projen"

@@ -1,4 +1,5 @@
 import { assertions, App, Stack } from "aws-cdk-lib";
+
 import { ISSMSecureIAMAccessKeyProps, SSMSecureIAMAccessKey } from "../src";
 
 const mockApp = new App();

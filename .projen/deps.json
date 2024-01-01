@@ -5,6 +5,10 @@
       "type": "build"
     },
     {
+      "name": "@types/clone-deep",
+      "type": "build"
+    },
+    {
       "name": "@types/jest",
       "type": "build"
     },
@@ -93,11 +97,6 @@
     {
       "name": "jsii",
       "version": "~5.0.0",
-      "type": "build"
-    },
-    {
-      "name": "npm-check-updates",
-      "version": "^16",
       "type": "build"
     },
     {
