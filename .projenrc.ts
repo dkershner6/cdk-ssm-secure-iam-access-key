@@ -59,7 +59,6 @@ const project = new Node20AwsCdkConstructLibrary({
     //     mavenEndpoint: "https://s01.oss.sonatype.org",
     // },
 });
-
 project.addPackageIgnore(".prettier*");
 project.addPackageIgnore(".projenrc.*");
 

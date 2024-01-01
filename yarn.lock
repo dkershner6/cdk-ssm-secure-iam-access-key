@@ -2891,10 +2891,10 @@ dir-glob@^3.0.1:
   dependencies:
     path-type "^4.0.0"
 
-dkershner6-projen-typescript@^0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/dkershner6-projen-typescript/-/dkershner6-projen-typescript-0.0.4.tgz#dca46f9002f5348f568e0ab7dcf5ca2b3971915b"
-  integrity sha512-HchqRWY1u8ZN04bCqrBnxRYUNnzECoDj0DzgiNKGBEIPtCkCj1+FPy6IvT6KpGJBZhD6XAp0UmSYIG608f6jGA==
+dkershner6-projen-typescript@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/dkershner6-projen-typescript/-/dkershner6-projen-typescript-0.0.6.tgz#5bb5868c9f5e4d894d7d29da9f505e891c8e0300"
+  integrity sha512-wt8wdSwGTo97OXrVm8IU6wkIq/npP3Q3Bd0wdb/XVe+3PegmyIsHYqIlxF6wBZR3cjUZeKdTc9PaD/EMh9Kr7Q==
 
 doctrine@^2.1.0:
   version "2.1.0"
@@ -5238,10 +5238,10 @@ process-nextick-args@~2.0.0:
   resolved "https://registry.yarnpkg.com/process-nextick-args/-/process-nextick-args-2.0.1.tgz#7820d9b16120cc55ca9ae7792680ae7dba6d7fe2"
   integrity sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==
 
-projen-nvm@^0.0.40:
-  version "0.0.40"
-  resolved "https://registry.yarnpkg.com/projen-nvm/-/projen-nvm-0.0.40.tgz#c402a942bcf11b26d2588c4dbae7c0152ffed847"
-  integrity sha512-H9iluKntx6pR6vH6Cx+sf8i0l29BSYETdjMI/8ASLmb1ZZtL9iIVPkShRkzGkQbWyQvt3PMvSB3HDGdvX/r7KQ==
+projen-nvm@^0.0.42:
+  version "0.0.42"
+  resolved "https://registry.yarnpkg.com/projen-nvm/-/projen-nvm-0.0.42.tgz#eca77d726c6c59ca0c7fa68e81dd44fffc8dbb63"
+  integrity sha512-kcJ6y7FhYkOVhqhazrhlCcUOYqZDB5SLG1r3OfB/djKqSnpz0sYeV/JMCbjV+uyuwTdKhELhzZPjstBm3JAkyA==
 
 projen@^0.78.5:
   version "0.78.5"
